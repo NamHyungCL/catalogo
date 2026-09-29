@@ -108,9 +108,21 @@ document.addEventListener('DOMContentLoaded', async () => {
       productos = lista;
       errorCarga = null;
     } catch (e) {
-      console.warn('[Catalogo] No se pudo listar assets/img/:', e);
-      productos = [];
-      errorCarga = e;
+      // Sin listado (GitHub Pages): manifiesto explícito del JSON
+      console.warn('[Catalogo] Listado no disponible, usando manifiesto:', e);
+      const manif = await cargarManifiesto();
+      if (manif.length) {
+        manif.sort((a, b) => {
+          const na = parseInt(a.id, 10), nb = parseInt(b.id, 10);
+          if (!isNaN(na) && !isNaN(nb) && na !== nb) return na - nb;
+          return String(a.id).localeCompare(String(b.id), 'es', { numeric: true });
+        });
+        productos = manif;
+        errorCarga = null;
+      } else {
+        productos = [];
+        errorCarga = e;
+      }
     }
   }
 
