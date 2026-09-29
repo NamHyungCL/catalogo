@@ -1,0 +1,37 @@
+/* catalogo.css — Overrides mínimos sobre Flowbite.
+   Flowbite + Tailwind hacen el 95%. Acá solo: fuente, hover imagen, scrollbar modal. */
+
+body { font-family: Inter, system-ui, sans-serif; }
+
+/* Card generada por JS */
+.catalogo-card img { display: block; }
+
+/* Filtro activo: glow rojo navideño */
+.catalogo-filtro--activo {
+  box-shadow: 0 0 12px rgba(193,39,45,0.4);
+}
+
+/* Nieve navideña sutil */
+.copo {
+  position: absolute;
+  top: -24px;
+  color: rgba(255,255,255,0.55);
+  animation: caer linear infinite;
+  user-select: none;
+}
+@keyframes caer {
+  to { transform: translateY(105vh) rotate(320deg); }
+}
+
+/* Modal scroll */
+#catalogoModal .overflow-y-auto::-webkit-scrollbar { width: 6px; }
+#catalogoModal .overflow-y-auto::-webkit-scrollbar-thumb { background: #2E2E30; border-radius: 3px; }
+
+/* Animación entrada modal */
+#catalogoModal.catalogo-modal--open > div:nth-child(2) {
+  animation: modalIn 0.2s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}

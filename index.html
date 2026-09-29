@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo 🎄</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['"Playfair Display"','Georgia','serif'] } } }
+    }
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/catalogo.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Test Dorado: solo superficie de card + pills, el resto lo pone el JS */
+    .catalogo-card { background: #181209 !important; border-color: #3A2C17 !important; }
+    .catalogo-card:hover { border-color: #E3B341 !important; }
+
+    /* Nieve acumulada en el borde superior de cada tarjeta */
+    #catalogoGrid .catalogo-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 22px;
+      z-index: 6;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,0.95) 60%, transparent 67%) 0 0/22px 22px repeat-x,
+        linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)) 0 0/100% 7px no-repeat;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.35));
+    }
+
+    /* Nieve cayendo DENTRO de la foto (2 capas = profundidad) */
+    #catalogoGrid .catalogo-card > div:first-child::before,
+    #catalogoGrid .catalogo-card > div:first-child::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
+    #catalogoGrid .catalogo-card > div:first-child::before {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.9) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 2px);
+      background-size: 90px 90px, 55px 55px;
+      animation: nevarCardA 8s linear infinite;
+    }
+    #catalogoGrid .catalogo-card > div:first-child::after {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.95) 2.5px, transparent 3.5px),
+        radial-gradient(circle, rgba(255,255,255,0.7) 1.5px, transparent 2.5px);
+      background-size: 140px 140px, 75px 75px;
+      animation: nevarCardB 5s linear infinite;
+    }
+    @keyframes nevarCardA { to { background-position: 30px 90px, -20px 55px; } }
+    @keyframes nevarCardB { to { background-position: -40px 140px, 25px 75px; } }
+    .catalogo-filtro { background: #181209 !important; border-color: #3A2C17 !important; color: #E8DCC3 !important; }
+    .catalogo-filtro--activo { background: #E3B341 !important; border-color: #E3B341 !important; color: #1A1206 !important; box-shadow: 0 0 14px rgba(227,179,65,.35); }
+  </style>
+</head>
+<body class="bg-[#0D0B08] text-[#E8DCC3] antialiased min-h-screen">
+
+  <!-- HERO dorado -->
+  <header class="relative overflow-hidden border-b border-[#3A2C17]" style="background: radial-gradient(ellipse 60% 90% at 50% -20%, rgba(227,179,65,0.14), transparent), #0D0B08;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+      <p class="text-xs tracking-[0.35em] uppercase text-[#E3B341]/70">Edición navideña</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-extrabold text-[#F5E9CF] mt-2">🎄 Catálogo</h1>
+      <div class="w-24 h-px bg-[#E3B341]/60 mx-auto mt-4"></div>
+      <div class="flex items-center justify-center gap-3 mt-4">
+        <span id="contadorProductos" class="bg-[#E3B341] text-[#1A1206] text-xs font-bold px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(227,179,65,0.35)]">0 productos</span>
+        <span class="text-xs text-[#E8DCC3]/40">🎄</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <section class="bg-[#181209] border border-[#3A2C17] rounded-2xl p-4 md:p-5 mt-6" aria-label="Filtros">
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <p class="text-xs font-bold tracking-widest text-[#E3B341]/70 uppercase">Filtrar por categoría</p>
+        <form class="w-full md:max-w-xs" onsubmit="return false">
+          <label for="buscadorCatalogo" class="sr-only">Buscar</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg class="w-4 h-4 text-[#E3B341]/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/></svg>
+            </div>
+            <input type="search" id="buscadorCatalogo" placeholder="Buscar producto..." class="block w-full ps-10 p-2.5 text-sm rounded-full bg-[#0D0B08] border border-[#3A2C17] text-[#E8DCC3] placeholder-[#E8DCC3]/40 focus:ring-[#E3B341]/40 focus:border-[#E3B341]" />
+          </div>
+        </form>
+      </div>
+      <div id="filtrosVariedad" class="flex flex-wrap gap-2 mt-4" role="group" aria-label="Variedades"></div>
+      <div class="flex justify-end mt-3">
+        <button id="btnLimpiarFiltros" type="button" class="text-xs font-medium text-[#E8DCC3]/50 hover:text-[#E3B341] underline underline-offset-4">Limpiar filtros</button>
+      </div>
+    </section>
+
+    <div id="catalogoGrid" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 mt-6" aria-live="polite">
+      <div id="estadoVacio" class="hidden col-span-full text-center py-16 bg-[#181209] border border-dashed border-[#3A2C17] rounded-2xl">
+        <h5 class="catalogo-vacio__title text-base font-semibold text-[#F5E9CF]">Sin resultados</h5>
+        <p class="catalogo-vacio__desc text-sm text-[#E8DCC3]/60 mt-1 max-w-md mx-auto">No hay productos para esa variedad / búsqueda.</p>
+        <button type="button" onclick="document.getElementById('btnLimpiarFiltros').click()" class="mt-4 text-[#1A1206] bg-[#E3B341] hover:bg-[#F0C75E] font-bold rounded-full text-sm px-5 py-2.5">Mostrar todo</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL (misma estructura que index) -->
+  <div id="catalogoModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" data-cerrar="modal"></div>
+    <div class="relative w-full max-w-6xl max-h-[92vh] overflow-hidden rounded-2xl bg-[#181209] border border-[#3A2C17] shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+      <button type="button" data-cerrar="modal" class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-[#0D0B08]/90 border border-[#3A2C17] text-[#E8DCC3] hover:text-white flex items-center justify-center" aria-label="Cerrar">✕</button>
+      <div class="grid md:grid-cols-[3fr_2fr] max-h-[92vh]">
+        <div class="bg-[#0A0806] flex flex-col overflow-hidden">
+          <div class="relative flex items-center justify-center min-h-[280px] md:min-h-[60vh] flex-1 overflow-hidden">
+            <img id="modalImg" class="hidden w-full object-contain max-h-[50vh] md:max-h-[72vh]" alt="" />
+            <div id="modalPlaceholder" class="w-full h-full min-h-[280px] flex items-center justify-center text-5xl text-[#3A2C17]">◧</div>
+            <span id="modalBadge" class="hidden absolute top-3 left-3 bg-[#0D0B08]/90 text-[11px] font-bold px-2.5 py-1 rounded-full border border-[#3A2C17] text-[#E8DCC3]"></span>
+          </div>
+          <div id="modalThumbs" class="flex gap-2 p-3 border-t border-[#3A2C17] overflow-x-auto"></div>
+        </div>
+        <div class="p-6 flex flex-col gap-3 overflow-y-auto">
+          <span id="modalVariedad" class="w-fit text-[11px] font-bold tracking-widest uppercase text-[#E3B341] bg-[#E3B341]/10 border border-[#E3B341]/25 px-2.5 py-1 rounded-full">Variedad</span>
+          <h3 id="modalTitle" class="font-serif text-xl md:text-2xl font-extrabold text-[#F5E9CF] leading-tight">Título</h3>
+          <p id="modalDesc" class="text-sm leading-relaxed text-[#E8DCC3]/80">Descripción...</p>
+          <div class="flex items-center justify-between pt-2">
+            <span id="modalPrecio" class="text-lg font-extrabold text-[#E3B341]">$ —</span>
+            <span id="modalMeta" class="text-xs text-[#E8DCC3]/50"></span>
+          </div>
+          <div class="mt-auto pt-4 border-t border-[#3A2C17]">
+            <button type="button" data-cerrar="modal" class="w-full text-[#E8DCC3] bg-[#0D0B08] border border-[#3A2C17] hover:border-[#E3B341] hover:text-white font-medium rounded-full text-sm px-5 py-2.5">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="nieve" class="fixed inset-0 z-30 pointer-events-none overflow-hidden" aria-hidden="true"></div>
+  <script>
+    (function () {
+      const cont = document.getElementById('nieve');
+      if (!cont) return;
+      for (let i = 0; i < 24; i++) {
+        const s = document.createElement('span');
+        s.textContent = '❄';
+        s.className = 'copo';
+        s.style.left = Math.random() * 100 + 'vw';
+        s.style.fontSize = (8 + Math.random() * 10) + 'px';
+        s.style.animationDuration = (7 + Math.random() * 8) + 's';
+        s.style.animationDelay = (-Math.random() * 12) + 's';
+        cont.appendChild(s);
+      }
+    })();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script src="./js/catalogo.js"></script>
+</body>
+</html>

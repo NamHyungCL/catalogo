@@ -1,0 +1,262 @@
+[
+  {
+    "carpeta": "1",
+    "nombre": "Cojín Navideño",
+    "variedad": "2",
+    "precio": "$ 7.000",
+    "descripcionCorta": "Cojín decorativo de motivo navideño.",
+    "descripcion": "Funda navideño decorativo. Ideal para sillones y camas en temporada. Consulta diseños y stock disponibles. de 45x45CM",
+    "badge": "",
+    "imagen": "assets/img/1/Principal.jpg",
+    "imagenes": [
+      "assets/img/1/Principal.jpg",
+      "assets/img/1/2.jpg"
+    ]
+  },
+  {
+    "carpeta": "2",
+    "nombre": "Funda cojines",
+    "variedad": "20",
+    "precio": "$ 6.000",
+    "descripcionCorta": "Funda cojin bordado",
+    "descripcion": "Funda de conjin Bordado PON-PON variedad de 20 diseños de 45x45CM",
+    "badge": "",
+    "imagen": "assets/img/2/Principal.jpg",
+    "imagenes": [
+      "assets/img/2/Principal.jpg"
+    ]
+  },
+  {
+    "carpeta": "3",
+    "nombre": "Funda de cojines",
+    "variedad": "5",
+    "precio": "$ 6.000",
+    "descripcionCorta": "Funda de cojin estampada de 45x45 CM",
+    "descripcion": "Funda estampada de cojin",
+    "badge": "",
+    "imagen": "assets/img/3/principal.jpg",
+    "imagenes": [
+      "assets/img/3/principal.jpg"
+    ]
+  },
+  {
+    "carpeta": "4",
+    "nombre": "Funda diseño de cojín o almohada — 2 diseños reno",
+    "variedad": "2",
+    "precio": "$ 7.000",
+    "descripcionCorta": "Funda cojin 2 diseños reno",
+    "descripcion": "Funda con diseños de renos.",
+    "badge": "",
+    "imagen": "assets/img/4/principal.jpg",
+    "imagenes": [
+      "assets/img/4/principal.jpg"
+    ]
+  },
+  {
+    "carpeta": "5",
+    "nombre": "Funda bordado con PON-PON",
+    "variedad": "4",
+    "precio": "$ 6.000",
+    "descripcionCorta": "Funda cojin con Pon-Pon",
+    "descripcion": "Funda bordada con Pon-Pon de 45x45CM consulta diseños",
+    "badge": "",
+    "imagen": "assets/img/5/principal.jpg",
+    "imagenes": [
+      "assets/img/5/principal.jpg"
+    ]
+  },
+  {
+    "carpeta": "6",
+    "nombre": "Funda Color rosa con relieve",
+    "variedad": "4",
+    "precio": "$ 7.000",
+    "descripcionCorta": "Funda color rosa con relieve",
+    "descripcion": "Funda cojín tipo terciopelo de 45x45CM consulta diseños",
+    "badge": "",
+    "imagen": "assets/img/6/principal.jpg",
+    "imagenes": [
+      "assets/img/6/principal.jpg"
+    ]
+  },
+  {
+    "carpeta": "7",
+    "nombre": "Funda con cinta con relieve",
+    "variedad": "3",
+    "precio": "$ 6.500",
+    "descripcionCorta": "Funda con cinta con relieve",
+    "descripcion": "Funda cojin con cinta y diseños en relieve de 42x42CM consulta diseños",
+    "badge": "",
+    "imagen": "assets/img/7/watermarked_img_17108005003942100382.jpg",
+    "imagenes": [
+      "assets/img/7/watermarked_img_17108005003942100382.jpg",
+      "assets/img/7/watermarked_img_285805117658458697.jpg",
+      "assets/img/7/watermarked_img_4470478600335562971.jpg"
+    ]
+  },
+  {
+    "carpeta": "8",
+    "nombre": "Bota con relieve, Colgante",
+    "variedad": "2",
+    "precio": "$ 5.000",
+    "descripcionCorta": "Bota con relieve, Colgante de Navidad",
+    "descripcion": "Bota navideña con relieve colgante 2 diseños",
+    "badge": "",
+    "imagen": "assets/img/8/watermarked_img_15879300877506820064.jpg",
+    "imagenes": [
+      "assets/img/8/watermarked_img_15879300877506820064.jpg",
+      "assets/img/8/watermarked_img_9965303764947692082.jpg"
+    ]
+  },
+  {
+    "carpeta": "9",
+    "nombre": "Cortina diseño navideño de baño",
+    "variedad": "6",
+    "precio": "$7.500",
+    "descripcionCorta": "Cortina diseño navideño de baño",
+    "descripcion": "Cortina navideña para baño consulta diseños",
+    "badge": "",
+    "imagen": "assets/img/9/Principal.jpg",
+    "imagenes": [
+      "assets/img/9/Principal.jpg",
+      "assets/img/9/2.jpg",
+      "assets/img/9/3.jpg",
+      "assets/img/9/4.jpg",
+      "assets/img/9/5.jpg",
+      "assets/img/9/6.jpg"
+    ]
+  },
+  {
+    "carpeta": "10",
+    "nombre": "Funda estapada de cojin 45x45",
+    "variedad": "8",
+    "precio": "$ 5.000",
+    "descripcionCorta": "Funda estapada de cojin 45x45",
+    "descripcion": "Funda de cojin estampada de 45x45CM consulta diseños",
+    "badge": "",
+    "imagen": "assets/img/10/Principal.jpg",
+    "imagenes": [
+      "assets/img/10/Principal.jpg",
+      "assets/img/10/2.jpg",
+      "assets/img/10/3.jpg",
+      "assets/img/10/4.jpg",
+      "assets/img/10/5.jpg",
+      "assets/img/10/6.jpg",
+      "assets/img/10/7.jpg",
+      "assets/img/10/8.jpg"
+    ]
+  },
+  {
+    "carpeta": "11",
+    "nombre": "Manter de genero",
+    "variedad": "6",
+    "precio": "$ 8.500",
+    "descripcionCorta": "Manteles navideño de genero",
+    "descripcion": "Manteles navideño de genero con diseños",
+    "badge": "",
+    "imagen": "assets/img/11/watermarked_img_12424809293004238224.jpg",
+    "imagenes": [
+      "assets/img/11/watermarked_img_12424809293004238224.jpg"
+    ]
+  },
+  {
+    "carpeta": "12",
+    "nombre": "Alfrombras redodas diseño navideño",
+    "variedad": "7",
+    "precio": "$ 6.000",
+    "descripcionCorta": "alfombra navideña",
+    "descripcion": "alfombra navideña 90CM circular",
+    "badge": "",
+    "imagen": "assets/img/12/6dfb61d2-b869-4697-a070-6e1eb6611548.jpg",
+    "imagenes": [
+      "assets/img/12/6dfb61d2-b869-4697-a070-6e1eb6611548.jpg",
+      "assets/img/12/8aa89379-af8f-4fdd-8a32-595ae7cb3c2a.jpg",
+      "assets/img/12/a698b5fb-9578-4d02-b445-96ea33f3c585.jpg",
+      "assets/img/12/bad57ccb-dbe0-4f42-b793-ade1ed486b10.jpg",
+      "assets/img/12/cfc70508-7c5f-49de-a40e-abc6da6221f7.jpg",
+      "assets/img/12/f2d17af9-ac29-481a-9119-bedb91bf2044.jpg",
+      "assets/img/12/f5351432-47e7-458c-a728-a48c9d5abd19.jpg"
+    ]
+  },
+  {
+    "carpeta": "13",
+    "nombre": "Mantel",
+    "variedad": "4",
+    "precio": "$ 7.500",
+    "descripcionCorta": "120x220cm Mantel de navidad",
+    "descripcion": "Mantel de 4 estilos navideños",
+    "badge": "",
+    "imagen": "assets/img/13/35381f0d-4449-4d79-a3cf-77dc6146a6c1.jpg",
+    "imagenes": [
+      "assets/img/13/35381f0d-4449-4d79-a3cf-77dc6146a6c1.jpg",
+      "assets/img/13/379073ae-68f5-4f64-adfd-b2756fcd6ce0.jpg",
+      "assets/img/13/431156c9-c5b0-4b07-b9f1-c0f7d736b510.jpg",
+      "assets/img/13/d490fb7c-b2d5-4ea8-a1d2-c711c0fa8486.jpg"
+    ]
+  },
+  {
+    "carpeta": "14",
+    "nombre": "Alfombra navideña pequeña",
+    "variedad": "4",
+    "precio": "$ 7.500",
+    "descripcionCorta": "Alfombra navideña pequeña",
+    "descripcion": "Alfombra navideña 80x120cm",
+    "badge": "",
+    "imagen": "assets/img/14/a4a3d73c-5ccd-42ef-997b-af2ea8e79d56.jpg",
+    "imagenes": [
+      "assets/img/14/a4a3d73c-5ccd-42ef-997b-af2ea8e79d56.jpg",
+      "assets/img/14/acb12f97-b8a7-4a17-8a12-01c1c79ccf96.jpg",
+      "assets/img/14/b3d55a00-3be1-40be-a984-06504f416e0f.jpg",
+      "assets/img/14/bf822acf-6efd-4bfa-a9e7-bf67bbbb4e88.jpg"
+    ]
+  },
+  {
+    "carpeta": "15",
+    "nombre": "Camino de mesa navideño",
+    "variedad": "4",
+    "precio": "$ 8.000",
+    "descripcionCorta": "Camino de mesa navideño 33x180cm",
+    "descripcion": "Camino de mesa navideño 33x180cm",
+    "badge": "",
+    "imagen": "assets/img/15/4103bda4-804e-4494-927c-73cab0c1df8e.jpg",
+    "imagenes": [
+      "assets/img/15/4103bda4-804e-4494-927c-73cab0c1df8e.jpg",
+      "assets/img/15/6d13fc9d-5396-41c3-b28e-1c6f4a3a4280.jpg",
+      "assets/img/15/b19000b6-6d46-4fd6-a64d-2b15e84b05a5.jpg",
+      "assets/img/15/da80779d-a355-455f-bfef-db2069e5282a.jpg"
+    ]
+  },
+  {
+    "carpeta": "16",
+    "nombre": "frazada navideña",
+    "variedad": "4",
+    "precio": "$ 9.000",
+    "descripcionCorta": "frazada navideña 150x200cm",
+    "descripcion": "frazada navideña 150x200cm",
+    "badge": "",
+    "imagen": "assets/img/16/0c6ae5bd-0210-4994-a99d-c75052a5fb29.jpg",
+    "imagenes": [
+      "assets/img/16/0c6ae5bd-0210-4994-a99d-c75052a5fb29.jpg",
+      "assets/img/16/9c11da30-1f36-4967-aba5-cfba0eb629e9.jpg",
+      "assets/img/16/b4cc156a-fec0-474f-bdc2-3f5101487d84.jpg",
+      "assets/img/16/bf2ca33f-cde3-4cc2-ae7d-8094452d732b.jpg"
+    ]
+  },
+  {
+    "carpeta": "17",
+    "nombre": "Visillo navideño",
+    "variedad": "6",
+    "precio": "$ 16.000",
+    "descripcionCorta": "visillo navideño 130x230cm",
+    "descripcion": "visillo navideño 130x230cm",
+    "badge": "",
+    "imagen": "assets/img/17/1ae5b030-a54d-4454-a9f1-8748190a605e.jpg",
+    "imagenes": [
+      "assets/img/17/1ae5b030-a54d-4454-a9f1-8748190a605e.jpg",
+      "assets/img/17/41e16e2d-2f53-4ce1-b603-7689b64b7143.jpg",
+      "assets/img/17/5d692fc7-da40-4365-bea6-4a43240239e2.jpg",
+      "assets/img/17/85bed804-ddd8-4b56-b424-a4f9152428a8.jpg",
+      "assets/img/17/f39aad48-17bd-4f8b-a4fe-b505a85f3bc2.jpg",
+      "assets/img/17/f69246f0-8a26-461b-bc17-a6b662cac14c.jpg"
+    ]
+  }
+]
