@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Anti-caché: las carpetas repiten nombres (Principal.jpg, 2.jpg...),
   // sin esto el navegador muestra fotos viejas al reemplazar archivos.
   const CB = Date.now();
+  // true cuando no hay listado de carpetas (GitHub Pages): no reintentar fetches que darán 404
+  let sinListado = false;
 
   function normVariedad(v) {
     if (Array.isArray(v)) return v.map(s => String(s).trim()).filter(Boolean).join(', ');
@@ -98,6 +100,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (!lista.length) {
         const manif = await cargarManifiesto();
         manif.forEach(p => lista.push(p));
+        if (manif.length) sinListado = true;
       }
       // Orden por número de carpeta: 1, 2, ... 10 (no alfabético 1, 10, 2)
       lista.sort((a, b) => {
@@ -112,6 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.warn('[Catalogo] Listado no disponible, usando manifiesto:', e);
       const manif = await cargarManifiesto();
       if (manif.length) {
+        sinListado = true;
         manif.sort((a, b) => {
           const na = parseInt(a.id, 10), nb = parseInt(b.id, 10);
           if (!isNaN(na) && !isNaN(nb) && na !== nb) return na - nb;
@@ -424,8 +428,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     pintarThumbs(base, titulo);
     setModalMain(base[0] || '', titulo);
 
-    // 2) Completa con TODAS las fotos de la carpeta (cualquier nombre), sin tocar el JSON
-    if (principal) {
+    // 2) Completa con TODAS las fotos de la carpeta (solo local; en Pages no hay listado)
+    if (principal && !sinListado) {
       const completas = await imagenesDeCarpeta(principal);
       if (completas.length > base.length) {
         try { card.dataset.imagenes = JSON.stringify(completas); } catch {}
