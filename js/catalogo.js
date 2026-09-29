@@ -439,6 +439,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   function cerrarModal() {
     if (!modal) return;
+    if (document.activeElement && modal.contains(document.activeElement)) document.activeElement.blur();
     modal.classList.add('hidden'); modal.classList.remove('flex', 'catalogo-modal--open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
